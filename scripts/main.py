@@ -182,7 +182,7 @@ def scrape() -> dict:
 def save_output(data: dict) -> Path:
     OUTPUT_DIR.mkdir(exist_ok=True)
     date_str = data["fetched_at"][:10]
-    filename = OUTPUT_DIR / f"interest-rates-{date_str}.json"
+    filename = OUTPUT_DIR / f"{date_str.replace('-', '')}_interest_rates.json"
     filename.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
     return filename
 
